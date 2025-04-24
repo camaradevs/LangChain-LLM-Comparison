@@ -22,6 +22,13 @@
       "reference": "https://arxiv.org/abs/2107.03374"
     },
     {
+      "name": "freedom",
+      "full_name": "AI Book Bans: Freedom to Read",
+      "description": "Mede a capacidade do modelo de navegar entre seguir instruções e defender princípios de liberdade intelectual.",
+      "category": "ethics",
+      "reference": "llm-censorship-benchmark.md"
+    },
+    {
       "name": "GSM8K",
       "full_name": "Grade School Math 8K",
       "description": "Avalia a capacidade de resolver problemas matemáticos de nível básico que requerem raciocínio de múltiplas etapas.",
