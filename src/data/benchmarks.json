@@ -1,0 +1,116 @@
+{
+  "text_model_benchmarks": [
+    {
+      "name": "MMLU",
+      "full_name": "Massive Multitask Language Understanding",
+      "description": "Avalia o conhecimento e a compreensão do modelo em 57 tópicos, incluindo matemática, ética, direito, história e várias ciências.",
+      "category": "knowledge",
+      "reference": "https://arxiv.org/abs/2009.03300"
+    },
+    {
+      "name": "HellaSwag",
+      "full_name": "HellaSwag",
+      "description": "Testa a capacidade do modelo de completar textos com o senso comum e conhecimento de mundo real.",
+      "category": "commonsense",
+      "reference": "https://arxiv.org/abs/1905.07830"
+    },
+    {
+      "name": "HumanEval",
+      "full_name": "Human Evaluation",
+      "description": "Avalia a capacidade de escrita de código do modelo, pedindo que resolva problemas de programação.",
+      "category": "coding",
+      "reference": "https://arxiv.org/abs/2107.03374"
+    },
+    {
+      "name": "GSM8K",
+      "full_name": "Grade School Math 8K",
+      "description": "Avalia a capacidade de resolver problemas matemáticos de nível básico que requerem raciocínio de múltiplas etapas.",
+      "category": "reasoning",
+      "reference": "https://arxiv.org/abs/2110.14168"
+    },
+    {
+      "name": "TruthfulQA",
+      "full_name": "Truthful Question Answering",
+      "description": "Avalia a veracidade e precisão das respostas do modelo a perguntas que podem induzir a afirmações falsas.",
+      "category": "truthfulness",
+      "reference": "https://arxiv.org/abs/2109.07958"
+    },
+    {
+      "name": "BBH",
+      "full_name": "BIG-Bench Hard",
+      "description": "Subconjunto de tarefas particularmente difíceis do BIG-Bench, focando em raciocínio complexo.",
+      "category": "reasoning",
+      "reference": "https://arxiv.org/abs/2210.09261"
+    },
+    {
+      "name": "ARC",
+      "full_name": "AI2 Reasoning Challenge",
+      "description": "Conjunto de questões de múltipla escolha de ciências de nível escolar que requerem raciocínio.",
+      "category": "science_reasoning",
+      "reference": "https://arxiv.org/abs/1803.05457"
+    },
+    {
+      "name": "WinoGrande",
+      "full_name": "WinoGrande",
+      "description": "Versão ampliada do desafio Winograd Schema, testando compreensão e raciocínio linguístico.",
+      "category": "commonsense",
+      "reference": "https://arxiv.org/abs/1907.10641"
+    },
+    {
+      "name": "MATH",
+      "full_name": "MATH",
+      "description": "Problemas matemáticos de competição de alta dificuldade que requerem raciocínio passo a passo.",
+      "category": "math",
+      "reference": "https://arxiv.org/abs/2103.03874"
+    },
+    {
+      "name": "PIQA",
+      "full_name": "Physical Interaction Question Answering",
+      "description": "Avalia a compreensão do senso comum físico em cenários do cotidiano.",
+      "category": "physical_commonsense",
+      "reference": "https://arxiv.org/abs/1911.11641"
+    },
+    {
+      "name": "SIQA",
+      "full_name": "Social Interaction Question Answering",
+      "description": "Testa o entendimento de situações sociais e interações humanas.",
+      "category": "social_commonsense",
+      "reference": "https://arxiv.org/abs/1904.09728"
+    },
+    {
+      "name": "DROP",
+      "full_name": "Discrete Reasoning Over Paragraphs",
+      "description": "Avalia a capacidade de realizar operações discretas como contagem e aritmética sobre texto.",
+      "category": "reasoning",
+      "reference": "https://arxiv.org/abs/1903.00161"
+    },
+    {
+      "name": "GLUE",
+      "full_name": "General Language Understanding Evaluation",
+      "description": "Coleção de tarefas de compreensão de linguagem natural para avaliar sistemas de NLP.",
+      "category": "language_understanding",
+      "reference": "https://arxiv.org/abs/1804.07461"
+    },
+    {
+      "name": "SuperGLUE",
+      "full_name": "Super General Language Understanding Evaluation",
+      "description": "Sucessor mais desafiador do GLUE com tarefas mais complexas de compreensão de linguagem.",
+      "category": "language_understanding",
+      "reference": "https://arxiv.org/abs/1905.00537"
+    },
+    {
+      "name": "BoolQ",
+      "full_name": "Boolean Questions",
+      "description": "Perguntas naturais de sim/não que requerem compreensão do contexto.",
+      "category": "reading_comprehension",
+      "reference": "https://arxiv.org/abs/1905.10044"
+    },
+    {
+      "name": "LAMBADA",
+      "full_name": "LAnguage Modeling Broadened to Account for Discourse Aspects",
+      "description": "Testa a capacidade de prever a última palavra de um texto, exigindo amplo contexto.",
+      "category": "language_modeling",
+      "reference": "https://arxiv.org/abs/1606.06031"
+    }
+  ]
+}

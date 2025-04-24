@@ -1,0 +1,20 @@
+[
+  {"model": "GPT-4o", "cost": 0.01500, "mmlu": 88.7, "hellaswag": 96.1, "humaneval": 92.4},
+  {"model": "GPT-4o Mini", "cost": 0.00150, "mmlu": 78.5, "hellaswag": 91.2, "humaneval": 79.3},
+  {"model": "GPT-4 Turbo", "cost": 0.02000, "mmlu": 86.4, "hellaswag": 95.3, "humaneval": 96.3},
+  {"model": "GPT-3.5 Turbo", "cost": 0.00150, "mmlu": 70.0, "hellaswag": 85.5, "humaneval": 25.4},
+  {"model": "O1 (Reasoning)", "cost": 0.05000, "mmlu": 92.5, "hellaswag": 97.0, "humaneval": 98.2},
+  {"model": "Claude 3.5 Sonnet", "cost": 0.01500, "mmlu": 89.2, "hellaswag": 96.2, "humaneval": 90.5},
+  {"model": "Claude 3.5 Haiku", "cost": 0.00140, "mmlu": 82.4, "hellaswag": 93.8, "humaneval": 85.6},
+  {"model": "Claude 3 Opus", "cost": 0.04500, "mmlu": 86.8, "hellaswag": 95.4, "humaneval": 84.9},
+  {"model": "Claude 3 Sonnet", "cost": 0.01500, "mmlu": 83.5, "hellaswag": 93.2, "humaneval": 82.3},
+  {"model": "Claude 3 Haiku", "cost": 0.00075, "mmlu": 75.2, "hellaswag": 86.0, "humaneval": 75.9},
+  {"model": "DeepSeek V3", "cost": 0.000685, "mmlu": 88.5, "hellaswag": 88.9, "humaneval": 65.2},
+  {"model": "DeepSeek V2", "cost": 0.000685, "mmlu": 86.2, "hellaswag": 86.3, "humaneval": 61.4},
+  {"model": "DeepSeek Coder V2", "cost": 0.000685, "mmlu": 81.5, "hellaswag": 84.3, "humaneval": 79.8},
+  {"model": "DeepSeek R1", "cost": 0.00219, "mmlu": 90.8, "hellaswag": 90.0, "humaneval": 71.0},
+  {"model": "Gemini Flash 1.5", "cost": 0.00019, "mmlu": 78.7, "hellaswag": 85.6, "humaneval": 74.4},
+  {"model": "Gemini Pro 2", "cost": 0.00125, "mmlu": 84.1, "hellaswag": 90.0, "humaneval": 80.0},
+  {"model": "Gemini Pro 1.0", "cost": 0.00125, "mmlu": 75.2, "hellaswag": 84.2, "humaneval": 66.8},
+  {"model": "Gemini Pro Vision 1.0", "cost": 0.00250, "mmlu": 74.8, "hellaswag": 83.9, "humaneval": 65.4}
+]

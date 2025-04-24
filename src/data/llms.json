@@ -1,0 +1,132 @@
+{
+  "platforms": [
+    {
+      "name": "OpenAI",
+      "models": [
+        {
+          "displayName": "GPT-4o",
+          "modelName": "gpt-4o",
+          "langchainName": "gpt-4o",
+          "features": ["text", "image", "code", "function-calling"]
+        },
+        {
+          "displayName": "GPT-4o Mini",
+          "modelName": "gpt-4o-mini",
+          "langchainName": "gpt-4o-mini",
+          "features": ["text", "image", "code", "function-calling"]
+        },
+        {
+          "displayName": "GPT-4 Turbo",
+          "modelName": "gpt-4-turbo",
+          "langchainName": "gpt-4-turbo",
+          "features": ["text", "code", "function-calling"]
+        },
+        {
+          "displayName": "GPT-4",
+          "modelName": "gpt-4",
+          "langchainName": "gpt-4",
+          "features": ["text", "code"]
+        },
+        {
+          "displayName": "GPT-3.5 Turbo",
+          "modelName": "gpt-3.5-turbo",
+          "langchainName": "gpt-3.5-turbo",
+          "features": ["text", "code", "function-calling"]
+        },
+        {
+          "displayName": "O1 (Reasoning)",
+          "modelName": "o1",
+          "langchainName": "o1",
+          "features": ["text", "reasoning"]
+        }
+      ]
+    },
+    {
+      "name": "Anthropic",
+      "models": [
+        {
+          "displayName": "Claude 3.5 Sonnet",
+          "modelName": "claude-3-5-sonnet-20240620",
+          "langchainName": "claude-3-5-sonnet-latest",
+          "features": ["text", "image", "code"]
+        },
+        {
+          "displayName": "Claude 3.5 Haiku",
+          "modelName": "claude-3-5-haiku-20240620",
+          "langchainName": "claude-3-5-haiku-latest",
+          "features": ["text", "image", "code"]
+        },
+        {
+          "displayName": "Claude 3 Opus",
+          "modelName": "claude-3-opus-20240229",
+          "langchainName": "claude-3-opus-20240229",
+          "features": ["text", "image", "code"]
+        },
+        {
+          "displayName": "Claude 3 Sonnet",
+          "modelName": "claude-3-sonnet-20240229",
+          "langchainName": "claude-3-sonnet-20240229",
+          "features": ["text", "image", "code"]
+        },
+        {
+          "displayName": "Claude 3 Haiku",
+          "modelName": "claude-3-haiku-20240307",
+          "langchainName": "claude-3-haiku-20240307",
+          "features": ["text", "image", "code"]
+        }
+      ]
+    },
+    {
+      "name": "Google",
+      "models": [
+        {
+          "displayName": "Gemini 1.5 Pro",
+          "modelName": "gemini-1.5-pro",
+          "langchainName": "gemini-1.5-pro",
+          "features": ["text", "image", "code", "function-calling"]
+        },
+        {
+          "displayName": "Gemini 1.5 Flash",
+          "modelName": "gemini-1.5-flash",
+          "langchainName": "gemini-1.5-flash",
+          "features": ["text", "image", "code", "function-calling"]
+        },
+        {
+          "displayName": "Gemini 1.0 Pro",
+          "modelName": "gemini-1.0-pro",
+          "langchainName": "gemini-1.0-pro",
+          "features": ["text", "code"]
+        },
+        {
+          "displayName": "Gemini 1.0 Pro Vision",
+          "modelName": "gemini-1.0-pro-vision",
+          "langchainName": "gemini-1.0-pro-vision",
+          "features": ["text", "image", "code"]
+        }
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "models": [
+        {
+          "displayName": "DeepSeek V2",
+          "modelName": "deepseek-chat",
+          "langchainName": "deepseek-chat",
+          "features": ["text", "code"]
+        },
+        {
+          "displayName": "DeepSeek Coder V2",
+          "modelName": "deepseek-coder",
+          "langchainName": "deepseek-coder",
+          "features": ["text", "code"]
+        },
+        {
+          "displayName": "DeepSeek Reasoner",
+          "modelName": "deepseek-reasoner",
+          "langchainName": "deepseek-reasoner",
+          "features": ["text", "reasoning", "code"]
+        }
+      ]
+    }
+  ]
+}
