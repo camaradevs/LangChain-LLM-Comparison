@@ -1,10 +1,4 @@
-# Análisis Comparativo de Modelos de Lenguaje Grande (LLM*   **Puntuación de Libertad:** Esta métrica cuantifica la tendencia del modelo a evita### 4.3 Limitaciones
-
-*   **Representatividad de los Benchmarks:** Los benchmarks estándar pueden no reflejar perfectamente el rendimiento en tareas específicas del mundo real. Se recomienda una evaluación personalizada para aplicaciones críticas.
-*   **Metodología de la Puntuación de Libertad:** La puntuación de libertad se deriva de una prueba que evalúa cómo los modelos responden a consultas sobre literatura impugnada, información controvertida y preguntas desafiantes. Los modelos con puntuaciones más altas tienden a responder preguntas difíciles en lugar de rechazar o limitar respuestas.
-*   **Instantánea en el Tiempo:** El panorama de los LLMs evoluciona rápidamente. Las puntuaciones y los precios son mediciones puntuales realizadas en mayo de 2025.censura o negarse a responder debido a barreras restrictivas. Se basa en el benchmark "AI Book Bans: Are LLMs Champions of the Freedom to Read?" desarrollado por el Harvard's Library Innovation Lab, que prueba cómo los LLMs navegan las tensiones entre seguir instrucciones del usuario y mantener principios de libertad intelectual.
-*   **Fecha de Recolección de Datos:** Todas las puntuaciones de benchmarks y precios fueron recopilados alrededor del 5 de mayo de 2025.
-*   **Integración con LangChain:** Compatibilidad con LangChain confirmada a través de la documentación oficial de LangChain y paquetes comunitarios.para LangChain
+# Análisis Comparativo de Modelos de Lenguaje Grande (LLM) para LangChain
 
 *[English](./README.md) | [Português](./README.pt.md)*
 
@@ -60,7 +54,7 @@ La transparencia y la reproducibilidad son críticas para evaluar LLMs. Así es 
     *   **HumanEval:** Evalúa la corrección funcional para sintetizar código a partir de docstrings. ([Enlace a Paper/Dataset](https://github.com/openai/human-eval))
 *   **Benchmarks Adicionales (Referenciados en Gráficos Detallados):** GSM8K, BIG-Bench Hard (BBH), DROP, TruthfulQA, ARC, MATH, WinoGrande, PIQA, SIQA, GLUE, SuperGLUE, BoolQ, LAMBADA. *Se siguieron los protocolos de evaluación estándar para cada uno donde fue aplicable.*
 *   **Datos de Costo:** Obtenidos de las páginas oficiales de precios de los proveedores al 3 de mayo de 2025. Indicados en USD por 1,000 tokens de entrada/salida (verificar con el proveedor para detalles específicos, p. ej., descuentos fuera de hora pico de DeepSeek).
-*   **Puntuación de Libertad:** Esta métrica tiene como objetivo cuantificar la tendencia del modelo a evitar la censura o rechazar respuestas debido a barandillas restrictivas. *[PENDIENTE: Definir la metodología/dataset específico utilizado para calcular la puntuación de libertad para reproducibilidad y claridad. P. ej., basado en llm-censorship-benchmark.md o una suite de pruebas específica como BBQ, ToxiGen, etc.]*
+*   **Puntuación de Libertad:** Esta métrica cuantifica la tendencia del modelo a evitar la censura o rechazar respuestas debido a barandillas restrictivas. Se basa en el benchmark "AI Book Bans: Are LLMs Champions of the Freedom to Read?" desarrollado por el Harvard's Library Innovation Lab, que prueba cómo los LLMs navegan las tensiones entre seguir instrucciones del usuario y mantener principios de libertad intelectual.
 *   **Fecha de Recolección de Datos:** Todas las puntuaciones de benchmark y precios fueron recopilados alrededor del 3 de mayo de 2025.
 *   **Integración con LangChain:** Compatibilidad con LangChain confirmada a través de la documentación oficial de LangChain y paquetes de la comunidad.
 
@@ -149,7 +143,7 @@ Estos gráficos proporcionan una vista más granular del rendimiento del modelo 
 ### 4.3 Limitaciones
 
 *   **Representatividad de los Benchmarks:** Los benchmarks estándar pueden no reflejar perfectamente el rendimiento en tareas específicas del mundo real. Se recomienda una evaluación personalizada para aplicaciones críticas.
-*   **Definición de Puntuación de Libertad:** La "Puntuación de Libertad" requiere una definición y metodología precisa y reproducible (actualmente marcada como PENDIENTE). Su interpretación depende en gran medida de esta definición.
+*   **Metodología de la Puntuación de Libertad:** La puntuación de libertad se deriva de una prueba que evalúa cómo los modelos responden a consultas sobre literatura impugnada, información controvertida y preguntas desafiantes. Los modelos con puntuaciones más altas tienden a responder preguntas difíciles en lugar de rechazar o limitar respuestas.
 *   **Instantánea en el Tiempo:** El panorama de los LLM evoluciona rápidamente. Las puntuaciones y los precios son mediciones puntuales.
 *   **Aspectos Cualitativos:** Los benchmarks miden principalmente el rendimiento cuantitativo, descuidando aspectos como el estilo de escritura, matices de creatividad o fidelidad específica al seguimiento de instrucciones más allá del alcance probado.
 
@@ -170,7 +164,7 @@ Basado en los datos de los benchmarks:
 *   **Tareas Intensivas en Conocimiento y Razonamiento:**
     *   🥇 **O1 (Reasoning) (`o1-preview`):** Puntuación MMLU superior (92.5%), pero el más costoso.
     *   🥈 **DeepSeek Reasoner (`deepseek-reasoner`):** Excelente MMLU (90.8%), costo moderado, máxima libertad.
-    *   🥉 **Claude 3.7 Sonnet (`claude-3-7-sonnet-20240620`):** Excelente razonamiento y conocimiento general con buen precio.
+    *   🥉 **Claude 3.7 Sonnet (`claude-3-7-sonnet-20240620`):** Excelente raciocinio y conocimiento general con buen precio.
 *   **Aplicaciones con Alta Libertad de Contenido:**
     *   🥇 **DeepSeek Reasoner (`deepseek-reasoner`):** Mayor puntuación de libertad (85%).
     *   🥈 **DeepSeek Coder V2 (`deepseek-coder`):** Alta libertad (82%) ideal para desarrollo de software.
@@ -290,7 +284,7 @@ runExample();
 | Precios Anthropic                   | Página oficial de precios de la API de Anthropic.                                      |
 | Precios Google AI (Vertex/Studio)   | Páginas oficiales de precios de Google Cloud AI o AI Studio.                         |
 | Plataforma API DeepSeek             | Documentación y precios oficiales de la API de DeepSeek (incluida info fuera de pico). |
-| [PENDIENTE: Referencia Puntuación Libertad] | [Enlace a paper/metodología que define la Puntuación de Libertad utilizada.]             |
+| AI Book Bans                        | Benchmark que define la Puntuación de Libertad utilizada para medir la apertura de los LLM.             |
 
 ---
 
