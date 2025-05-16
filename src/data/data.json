@@ -1,5 +1,20 @@
 [
-  {"model": "GPT-4o", "cost": 0.01500, "mmlu": 88.7, "hellaswag": 96.1, "humaneval": 92.4, 
+  {"model": "Claude 3.7 Sonnet", "cost": 0.03000, "mmlu": 90.1, "hellaswag": 96.8, "humaneval": 93.7,
+   "gsm8k": 94.8, "truthfulqa": 90.2, "bbh": 88.3, "arc": 95.4, "winogrande": 93.5,
+   "math": 67.9, "piqa": 95.7, "siqa": 90.4, "drop": 83.8, "glue": 86.3,
+   "superglue": 87.2, "boolq": 92.8, "lambada": 90.3, "freedom": 26.0},
+  
+  {"model": "Claude 3.5 Sonnet", "cost": 0.01500, "mmlu": 88.0, "hellaswag": 95.4, "humaneval": 92.0,
+   "gsm8k": 93.2, "truthfulqa": 88.7, "bbh": 86.5, "arc": 94.3, "winogrande": 92.7,
+   "math": 65.3, "piqa": 95.1, "siqa": 88.9, "drop": 82.7, "glue": 85.4,
+   "superglue": 86.1, "boolq": 91.5, "lambada": 89.2, "freedom": 30.0},
+  
+  {"model": "Claude 3.5 Haiku", "cost": 0.00140, "mmlu": 82.4, "hellaswag": 93.8, "humaneval": 85.6,
+   "gsm8k": 86.3, "truthfulqa": 79.5, "bbh": 77.2, "arc": 88.7, "winogrande": 87.5,
+   "math": 54.7, "piqa": 90.3, "siqa": 83.1, "drop": 75.4, "glue": 78.6,
+   "superglue": 77.9, "boolq": 87.2, "lambada": 83.5, "freedom": 35.0},
+  
+  {"model": "GPT-4o", "cost": 0.01500, "mmlu": 88.7, "hellaswag": 95.3, "humaneval": 90.2, 
    "gsm8k": 94.6, "truthfulqa": 89.5, "bbh": 86.3, "arc": 95.1, "winogrande": 93.4, 
    "math": 66.2, "piqa": 95.3, "siqa": 89.7, "drop": 82.5, "glue": 85.0, 
    "superglue": 86.2, "boolq": 91.7, "lambada": 88.3, "freedom": 25.0},
@@ -24,8 +39,43 @@
    "math": 49.5, "piqa": 87.9, "siqa": 78.6, "drop": 68.2, "glue": 74.1,
    "superglue": 72.3, "boolq": 83.7, "lambada": 76.8, "freedom": 30.0},
   
-  {"model": "GPT-4 Turbo", "cost": 0.02000, "mmlu": 86.4, "hellaswag": 95.3, "humaneval": 96.3,
-   "gsm8k": 91.8, "truthfulqa": 87.9, "bbh": 85.2, "arc": 93.7, "winogrande": 92.3,
+  {"model": "Llama 3.1 405B", "cost": 0.00100, "mmlu": 88.6, "hellaswag": 94.9, "humaneval": 89.0,
+   "gsm8k": 92.3, "truthfulqa": 85.6, "bbh": 84.2, "arc": 93.5, "winogrande": 91.2,
+   "math": 63.7, "piqa": 93.4, "siqa": 87.3, "drop": 80.1, "glue": 83.2,
+   "superglue": 82.6, "boolq": 89.8, "lambada": 86.5, "freedom": 48.0},
+   
+  {"model": "Llama 3.3 70B", "cost": 0.00075, "mmlu": 86.0, "hellaswag": 93.2, "humaneval": 85.8,
+   "gsm8k": 89.5, "truthfulqa": 83.4, "bbh": 81.3, "arc": 91.0, "winogrande": 89.7,
+   "math": 59.6, "piqa": 91.8, "siqa": 85.2, "drop": 78.3, "glue": 81.5,
+   "superglue": 80.4, "boolq": 87.9, "lambada": 84.7, "freedom": 50.0},
+  
+  {"model": "Gemini 2.5 Pro", "cost": 0.00250, "mmlu": 86.4, "hellaswag": 93.8, "humaneval": 87.5,
+   "gsm8k": 91.5, "truthfulqa": 84.5, "bbh": 82.6, "arc": 92.3, "winogrande": 90.1,
+   "math": 61.3, "piqa": 92.6, "siqa": 86.8, "drop": 79.2, "glue": 82.7,
+   "superglue": 81.8, "boolq": 88.9, "lambada": 85.6, "freedom": 28.0},
+  
+  {"model": "Gemini 1.5 Flash", "cost": 0.00019, "mmlu": 78.7, "hellaswag": 85.6, "humaneval": 74.4,
+   "gsm8k": 79.5, "truthfulqa": 73.8, "bbh": 71.9, "arc": 83.6, "winogrande": 82.4,
+   "math": 51.2, "piqa": 87.3, "siqa": 78.6, "drop": 70.5, "glue": 75.1,
+   "superglue": 73.7, "boolq": 83.5, "lambada": 79.8, "freedom": 35.0},
+  
+  {"model": "Claude 3 Opus", "cost": 0.04500, "mmlu": 86.8, "hellaswag": 95.4, "humaneval": 84.9,
+   "gsm8k": 95.0, "truthfulqa": 87.2, "bbh": 84.3, "arc": 93.1, "winogrande": 91.5,
+   "math": 62.5, "piqa": 93.8, "siqa": 86.3, "drop": 80.2, "glue": 82.5,
+   "superglue": 84.1, "boolq": 89.6, "lambada": 85.4, "freedom": 25.0},
+  
+  {"model": "Claude 3 Sonnet", "cost": 0.01500, "mmlu": 83.5, "hellaswag": 93.2, "humaneval": 82.3,
+   "gsm8k": 87.3, "truthfulqa": 82.5, "bbh": 78.5, "arc": 89.6, "winogrande": 88.2,
+   "math": 57.3, "piqa": 91.5, "siqa": 84.2, "drop": 77.5, "glue": 80.1,
+   "superglue": 79.3, "boolq": 88.5, "lambada": 83.9, "freedom": 28.0},
+  
+  {"model": "DeepSeek Reasoner", "cost": 0.00219, "mmlu": 90.8, "hellaswag": 90.0, "humaneval": 71.0,
+   "gsm8k": 92.5, "truthfulqa": 83.2, "bbh": 82.7, "arc": 91.5, "winogrande": 87.9,
+   "math": 67.8, "piqa": 90.7, "siqa": 84.3, "drop": 79.6, "glue": 81.4,
+   "superglue": 80.9, "boolq": 89.5, "lambada": 85.2, "freedom": 52.0},
+  
+  {"model": "GPT-4 Turbo", "cost": 0.02000, "mmlu": 85.9, "hellaswag": 95.3, "humaneval": 82.0,
+   "gsm8k": 91.0, "truthfulqa": 87.9, "bbh": 85.2, "arc": 93.7, "winogrande": 92.3,
    "math": 64.8, "piqa": 94.7, "siqa": 87.5, "drop": 81.9, "glue": 83.7,
    "superglue": 85.3, "boolq": 90.1, "lambada": 87.8, "freedom": 20.0},
   
@@ -38,31 +88,6 @@
    "gsm8k": 96.7, "truthfulqa": 92.3, "bbh": 90.5, "arc": 96.8, "winogrande": 95.3,
    "math": 72.6, "piqa": 96.5, "siqa": 92.3, "drop": 86.7, "glue": 88.5,
    "superglue": 89.7, "boolq": 94.5, "lambada": 91.2, "freedom": 15.0},
-  
-  {"model": "Claude 3.7 Sonnet", "cost": 0.03000, "mmlu": 90.1, "hellaswag": 96.8, "humaneval": 93.7,
-   "gsm8k": 94.8, "truthfulqa": 90.2, "bbh": 88.3, "arc": 95.4, "winogrande": 93.5,
-   "math": 67.9, "piqa": 95.7, "siqa": 90.4, "drop": 83.8, "glue": 86.3,
-   "superglue": 87.2, "boolq": 92.8, "lambada": 90.3, "freedom": 26.0},
-  
-  {"model": "Claude 3.5 Sonnet", "cost": 0.01500, "mmlu": 89.2, "hellaswag": 96.2, "humaneval": 90.5,
-   "gsm8k": 93.2, "truthfulqa": 88.7, "bbh": 86.5, "arc": 94.3, "winogrande": 92.7,
-   "math": 65.3, "piqa": 95.1, "siqa": 88.9, "drop": 82.7, "glue": 85.4,
-   "superglue": 86.1, "boolq": 91.5, "lambada": 89.2, "freedom": 30.0},
-  
-  {"model": "Claude 3.5 Haiku", "cost": 0.00140, "mmlu": 82.4, "hellaswag": 93.8, "humaneval": 85.6,
-   "gsm8k": 86.3, "truthfulqa": 79.5, "bbh": 77.2, "arc": 88.7, "winogrande": 87.5,
-   "math": 54.7, "piqa": 90.3, "siqa": 83.1, "drop": 75.4, "glue": 78.6,
-   "superglue": 77.9, "boolq": 87.2, "lambada": 83.5, "freedom": 35.0},
-  
-  {"model": "Claude 3 Opus", "cost": 0.04500, "mmlu": 86.8, "hellaswag": 95.4, "humaneval": 84.9,
-   "gsm8k": 90.7, "truthfulqa": 87.2, "bbh": 84.3, "arc": 93.1, "winogrande": 91.5,
-   "math": 62.5, "piqa": 93.8, "siqa": 86.3, "drop": 80.2, "glue": 82.5,
-   "superglue": 84.1, "boolq": 89.6, "lambada": 85.4, "freedom": 25.0},
-  
-  {"model": "Claude 3 Sonnet", "cost": 0.01500, "mmlu": 83.5, "hellaswag": 93.2, "humaneval": 82.3,
-   "gsm8k": 87.3, "truthfulqa": 82.5, "bbh": 78.5, "arc": 89.6, "winogrande": 88.2,
-   "math": 57.3, "piqa": 91.5, "siqa": 84.2, "drop": 77.5, "glue": 80.1,
-   "superglue": 79.3, "boolq": 88.5, "lambada": 83.9, "freedom": 28.0},
   
   {"model": "Claude 3 Haiku", "cost": 0.00075, "mmlu": 75.2, "hellaswag": 86.0, "humaneval": 75.9,
    "gsm8k": 78.4, "truthfulqa": 70.2, "bbh": 69.7, "arc": 81.3, "winogrande": 82.5,
@@ -79,31 +104,6 @@
    "math": 52.9, "piqa": 85.4, "siqa": 77.8, "drop": 69.3, "glue": 74.2,
    "superglue": 72.8, "boolq": 82.6, "lambada": 77.9, "freedom": 60.0},
   
-  {"model": "DeepSeek Reasoner", "cost": 0.00219, "mmlu": 90.8, "hellaswag": 90.0, "humaneval": 71.0,
-   "gsm8k": 92.5, "truthfulqa": 83.2, "bbh": 82.7, "arc": 91.5, "winogrande": 87.9,
-   "math": 67.8, "piqa": 90.7, "siqa": 84.3, "drop": 79.6, "glue": 81.4,
-   "superglue": 80.9, "boolq": 89.5, "lambada": 85.2, "freedom": 52.0},
-  
-  {"model": "Llama 3.1 405B", "cost": 0.00100, "mmlu": 88.6, "hellaswag": 94.9, "humaneval": 89.0,
-   "gsm8k": 92.3, "truthfulqa": 85.6, "bbh": 84.2, "arc": 93.5, "winogrande": 91.2,
-   "math": 63.7, "piqa": 93.4, "siqa": 87.3, "drop": 80.1, "glue": 83.2,
-   "superglue": 82.6, "boolq": 89.8, "lambada": 86.5, "freedom": 48.0},
-   
-  {"model": "Llama 3.3 70B", "cost": 0.00075, "mmlu": 86.0, "hellaswag": 93.2, "humaneval": 85.8,
-   "gsm8k": 89.5, "truthfulqa": 83.4, "bbh": 81.3, "arc": 91.0, "winogrande": 89.7,
-   "math": 59.6, "piqa": 91.8, "siqa": 85.2, "drop": 78.3, "glue": 81.5,
-   "superglue": 80.4, "boolq": 87.9, "lambada": 84.7, "freedom": 50.0},
-  
-  {"model": "Gemini 2.5 Pro", "cost": 0.00250, "mmlu": 86.4, "hellaswag": 93.8, "humaneval": 87.5,
-   "gsm8k": 90.2, "truthfulqa": 84.5, "bbh": 82.6, "arc": 92.3, "winogrande": 90.1,
-   "math": 61.3, "piqa": 92.6, "siqa": 86.8, "drop": 79.2, "glue": 82.7,
-   "superglue": 81.8, "boolq": 88.9, "lambada": 85.6, "freedom": 28.0},
-  
-  {"model": "Gemini 1.5 Flash", "cost": 0.00019, "mmlu": 78.7, "hellaswag": 85.6, "humaneval": 74.4,
-   "gsm8k": 79.5, "truthfulqa": 73.8, "bbh": 71.9, "arc": 83.6, "winogrande": 82.4,
-   "math": 51.2, "piqa": 87.3, "siqa": 78.6, "drop": 70.5, "glue": 75.1,
-   "superglue": 73.7, "boolq": 83.5, "lambada": 79.8, "freedom": 35.0},
-  
   {"model": "Gemini 1.5 Pro", "cost": 0.00125, "mmlu": 84.1, "hellaswag": 90.0, "humaneval": 80.0,
    "gsm8k": 85.9, "truthfulqa": 79.7, "bbh": 78.3, "arc": 89.2, "winogrande": 86.5,
    "math": 56.8, "piqa": 90.5, "siqa": 82.4, "drop": 75.8, "glue": 79.2,
@@ -117,5 +117,75 @@
   {"model": "Gemini 1.0 Pro Vision", "cost": 0.00250, "mmlu": 74.8, "hellaswag": 83.9, "humaneval": 65.4,
    "gsm8k": 76.2, "truthfulqa": 68.7, "bbh": 66.9, "arc": 79.3, "winogrande": 78.1,
    "math": 45.2, "piqa": 84.1, "siqa": 74.3, "drop": 64.5, "glue": 69.8,
-   "superglue": 67.5, "boolq": 77.6, "lambada": 73.9, "freedom": 32.0}
+   "superglue": 67.5, "boolq": 77.6, "lambada": 73.9, "freedom": 32.0},
+  
+  {"model": "O3", "cost": 0.01000, "mmlu": 92.9, "hellaswag": 96.5, "humaneval": 87.4,
+   "gsm8k": 95.5, "truthfulqa": 91.0, "bbh": 89.0, "arc": 96.0, "winogrande": 94.0,
+   "math": 70.0, "piqa": 96.0, "siqa": 91.0, "drop": 85.0, "glue": 87.0,
+   "superglue": 88.0, "boolq": 93.5, "lambada": 90.5, "freedom": 16.0},
+  
+  {"model": "O4-mini", "cost": 0.00110, "mmlu": 90.0, "hellaswag": 95.0, "humaneval": 97.3,
+   "gsm8k": 94.0, "truthfulqa": 89.0, "bbh": 87.0, "arc": 95.0, "winogrande": 93.0,
+   "math": 68.0, "piqa": 95.0, "siqa": 90.0, "drop": 83.0, "glue": 85.0,
+   "superglue": 86.0, "boolq": 92.0, "lambada": 89.0, "freedom": 17.0},
+   
+  {"model": "Grok 3", "cost": 0.00500, "mmlu": 92.7, "hellaswag": 96.0, "humaneval": 90.0,
+   "gsm8k": 94.0, "truthfulqa": 88.0, "bbh": 87.0, "arc": 95.0, "winogrande": 93.0,
+   "math": 69.0, "piqa": 95.0, "siqa": 90.0, "drop": 84.0, "glue": 86.0,
+   "superglue": 87.0, "boolq": 92.0, "lambada": 89.0, "freedom": 45.0},
+   
+  {"model": "Grok 3 Mini", "cost": 0.00100, "mmlu": 88.0, "hellaswag": 94.0, "humaneval": 86.0,
+   "gsm8k": 90.0, "truthfulqa": 85.0, "bbh": 83.0, "arc": 92.0, "winogrande": 90.0,
+   "math": 62.0, "piqa": 93.0, "siqa": 87.0, "drop": 80.0, "glue": 83.0,
+   "superglue": 82.0, "boolq": 89.0, "lambada": 86.0, "freedom": 48.0},
+   
+  {"model": "Llama 4 Scout", "cost": 0.00080, "mmlu": 79.6, "hellaswag": 90.0, "humaneval": 75.0,
+   "gsm8k": 85.0, "truthfulqa": 80.0, "bbh": 75.0, "arc": 88.0, "winogrande": 85.0,
+   "math": 50.3, "piqa": 88.0, "siqa": 82.0, "drop": 75.0, "glue": 78.0,
+   "superglue": 76.0, "boolq": 85.0, "lambada": 80.0, "freedom": 55.0},
+   
+  {"model": "Llama 4 Maverick", "cost": 0.00120, "mmlu": 85.5, "hellaswag": 93.0, "humaneval": 77.6,
+   "gsm8k": 88.0, "truthfulqa": 83.0, "bbh": 80.0, "arc": 90.0, "winogrande": 88.0,
+   "math": 61.2, "piqa": 92.0, "siqa": 85.0, "drop": 78.0, "glue": 81.0,
+   "superglue": 80.0, "boolq": 88.0, "lambada": 84.0, "freedom": 52.0},
+   
+  {"model": "DeepSeek V3", "cost": 0.00085, "mmlu": 88.5, "hellaswag": 92.0, "humaneval": 84.8,
+   "gsm8k": 90.0, "truthfulqa": 83.0, "bbh": 83.4, "arc": 92.0, "winogrande": 89.0,
+   "math": 71.0, "piqa": 92.0, "siqa": 86.0, "drop": 80.0, "glue": 82.0,
+   "superglue": 81.0, "boolq": 90.0, "lambada": 86.0, "freedom": 54.0},
+   
+  {"model": "AWS Bedrock Nova Pro", "cost": 0.00240, "mmlu": 87.0, "hellaswag": 93.0, "humaneval": 85.0,
+   "gsm8k": 89.0, "truthfulqa": 84.0, "bbh": 82.0, "arc": 92.0, "winogrande": 90.0,
+   "math": 60.0, "piqa": 92.0, "siqa": 86.0, "drop": 79.0, "glue": 82.0,
+   "superglue": 81.0, "boolq": 88.0, "lambada": 85.0, "freedom": 29.0},
+   
+  {"model": "AWS Bedrock Nova Lite", "cost": 0.00060, "mmlu": 82.0, "hellaswag": 90.0, "humaneval": 78.0,
+   "gsm8k": 83.0, "truthfulqa": 78.0, "bbh": 76.0, "arc": 87.0, "winogrande": 86.0,
+   "math": 55.0, "piqa": 88.0, "siqa": 82.0, "drop": 74.0, "glue": 78.0,
+   "superglue": 76.0, "boolq": 85.0, "lambada": 80.0, "freedom": 32.0},
+   
+  {"model": "AWS Bedrock Nova Micro", "cost": 0.00014, "mmlu": 75.0, "hellaswag": 85.0, "humaneval": 68.0,
+   "gsm8k": 75.0, "truthfulqa": 70.0, "bbh": 68.0, "arc": 80.0, "winogrande": 80.0,
+   "math": 45.0, "piqa": 84.0, "siqa": 75.0, "drop": 65.0, "glue": 70.0,
+   "superglue": 68.0, "boolq": 78.0, "lambada": 74.0, "freedom": 35.0},
+   
+  {"model": "AWS Bedrock Nova Premier", "cost": 0.01250, "mmlu": 89.0, "hellaswag": 95.0, "humaneval": 88.0,
+   "gsm8k": 92.0, "truthfulqa": 87.0, "bbh": 85.0, "arc": 94.0, "winogrande": 92.0,
+   "math": 65.0, "piqa": 94.0, "siqa": 89.0, "drop": 82.0, "glue": 85.0,
+   "superglue": 84.0, "boolq": 91.0, "lambada": 88.0, "freedom": 25.0},
+   
+  {"model": "AWS Bedrock Titan Text Premier", "cost": 0.00016, "mmlu": 72.0, "hellaswag": 83.0, "humaneval": 65.0,
+   "gsm8k": 73.0, "truthfulqa": 68.0, "bbh": 66.0, "arc": 78.0, "winogrande": 77.0,
+   "math": 42.0, "piqa": 83.0, "siqa": 72.0, "drop": 62.0, "glue": 68.0,
+   "superglue": 66.0, "boolq": 76.0, "lambada": 72.0, "freedom": 38.0},
+   
+  {"model": "Mistral Large 2", "cost": 0.00240, "mmlu": 86.0, "hellaswag": 92.0, "humaneval": 83.0,
+   "gsm8k": 88.0, "truthfulqa": 82.0, "bbh": 80.0, "arc": 90.0, "winogrande": 88.0,
+   "math": 58.0, "piqa": 91.0, "siqa": 84.0, "drop": 77.0, "glue": 80.0,
+   "superglue": 79.0, "boolq": 87.0, "lambada": 83.0, "freedom": 42.0},
+   
+  {"model": "Cohere Command R+", "cost": 0.00150, "mmlu": 85.0, "hellaswag": 91.0, "humaneval": 82.0,
+   "gsm8k": 87.0, "truthfulqa": 81.0, "bbh": 79.0, "arc": 89.0, "winogrande": 87.0,
+   "math": 57.0, "piqa": 90.0, "siqa": 83.0, "drop": 76.0, "glue": 79.0,
+   "superglue": 78.0, "boolq": 86.0, "lambada": 82.0, "freedom": 38.0}
 ]

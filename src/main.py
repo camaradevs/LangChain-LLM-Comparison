@@ -32,7 +32,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Generate LLM benchmark comparison charts')
     
     parser.add_argument('--data-file', type=str, 
-                       default='src/data/data_updated_2025.json',
+                       default='src/data/data.json',
                        help='Path to LLM benchmark data file')
     
     parser.add_argument('--benchmarks-file', type=str, 

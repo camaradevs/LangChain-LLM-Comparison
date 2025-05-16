@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
 
 from llm_chart_generator.translations import get_translation, get_benchmark_name
 
@@ -240,9 +241,10 @@ def generate_freedom_vs_benchmark_chart(
     
     # Generate filename
     output_file = os.path.join(lang_dir, f"freedom_vs_{benchmark}.png")
+    output_file = os.path.abspath(output_file)
     
     # Save the figure
-    fig.write_image(output_file, scale=3)  # High resolution
+    pio.write_image(fig, output_file, scale=3)  # High resolution
     
     # Skip HTML generation
     # html_file = os.path.join(lang_dir, f"freedom_vs_{benchmark}.html")
@@ -436,9 +438,10 @@ def generate_cost_vs_benchmark_chart(
     
     # Generate filename
     output_file = os.path.join(lang_dir, f"cost_vs_{benchmark}.png")
+    output_file = os.path.abspath(output_file)
     
     # Save the figure
-    fig.write_image(output_file, scale=3)  # High resolution
+    pio.write_image(fig, output_file, scale=3)  # High resolution
     
     # Skip HTML generation
     # html_file = os.path.join(lang_dir, f"cost_vs_{benchmark}.html")
@@ -463,6 +466,9 @@ def generate_power_vs_freedom_chart(
     Returns:
         Path to the generated chart file
     """
+    # Make a copy of the DataFrame to avoid modifying the original
+    df = df.copy()
+    
     # Calculate power score (average of all benchmarks except freedom)
     benchmarks = [col for col in df.columns if col not in ['model', 'cost', 'freedom']]
     if not benchmarks:
@@ -632,9 +638,10 @@ def generate_power_vs_freedom_chart(
     
     # Generate filename
     output_file = os.path.join(lang_dir, "power_vs_freedom.png")
+    output_file = os.path.abspath(output_file)
     
     # Save the figure
-    fig.write_image(output_file, scale=3)  # High resolution
+    pio.write_image(fig, output_file, scale=3)  # High resolution
     
     # Skip HTML generation
     # html_file = os.path.join(lang_dir, "power_vs_freedom.html")

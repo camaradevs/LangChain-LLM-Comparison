@@ -37,12 +37,12 @@ python src/main.py
 ### Advanced Options
 
 ```bash
-python src/main.py --data-file src/data/data_updated_2025.json --output-dir images --languages en es pt --parallel
+python src/main.py --data-file src/data/data.json --output-dir images --languages en es pt --parallel
 ```
 
 ### Command-line Arguments
 
-- `--data-file`: Path to LLM benchmark data file (default: `src/data/data_updated_2025.json`)
+- `--data-file`: Path to LLM benchmark data file (default: `src/data/data.json`)
 - `--benchmarks-file`: Path to benchmarks description file (default: `src/data/benchmarks.json`)
 - `--models-file`: Path to LLM models file (default: `src/data/llms.json`)
 - `--output-dir`: Directory to save generated charts (default: `images`)

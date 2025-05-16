@@ -52,7 +52,21 @@ def load_llm_data(file_path: str) -> pd.DataFrame:
         if missing:
             logger.error(f"Missing required columns in {file_path}: {missing}")
             return pd.DataFrame()
-            
+        
+        # Convert numeric columns to float (except model column)
+        for col in df.columns:
+            if col != 'model':
+                try:
+                    df[col] = pd.to_numeric(df[col], errors='coerce')
+                except Exception as e:
+                    logger.warning(f"Could not convert column {col} to numeric: {str(e)}")
+        
+        # Log any columns that contain non-numeric values
+        for col in df.columns:
+            if col != 'model':
+                if df[col].isnull().any():
+                    logger.warning(f"Column {col} contains non-numeric values that were converted to NaN")
+        
         return df
         
     except Exception as e:
