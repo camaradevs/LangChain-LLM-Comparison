@@ -169,23 +169,37 @@ The following charts provide a more granular view of model performance across sp
 Based on the benchmark data:
 
 *   **Cost-Sensitive General Tasks (RAG, Chatbots, Summarization):**
-    *   🥇 **DeepSeek V2 (`deepseek-chat`):** Best MMLU/Cost ratio.
-    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Lowest cost, good performance, multimodal option.
+    *   🥇 **AWS Bedrock Nova Micro (`bedrock-nova-micro`):** Lowest cost at $0.00014/1K tokens.
+    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Nearly as cheap ($0.00019), better performance, multimodal.
+    *   🥉 **DeepSeek V2 (`deepseek-chat`):** Best performance/cost ratio, high freedom score.
 *   **High-Performance Coding & Complex Reasoning:**
-    *   🥇 **GPT-4 Turbo (`gpt-4-turbo`):** Highest HumanEval, strong reasoning.
-    *   🥈 **Claude 3 Opus (`claude-3-opus-20240229`):** Strong alternative, excellent reasoning/knowledge. Consider if budget allows.
+    *   🥇 **O4-mini (`o4-mini`):** Highest HumanEval (97.3%), excellent value at $0.0011/1K.
+    *   🥈 **GPT-4.1 (`gpt-4.1`):** Nearly as good (97.8% HumanEval) but much more expensive.
+    *   🥉 **Claude 3.7 Sonnet (`claude-3-7-sonnet`):** Strong alternative (93.7% HumanEval), best common-sense reasoning.
 *   **Knowledge-Intensive Tasks & Reasoning:**
-    *   🥇 **DeepSeek Reasoner (`deepseek-reasoner`):** Top MMLU score, moderate cost.
-    *   🥈 **Claude 3 Opus (`claude-3-opus-20240229`):** High MMLU, premium option.
-    *   🥉 **Gemini 1.5 Pro (`gemini-1.5-pro`):** Strong MMLU, large context potential.
+    *   🥇 **O3 (`o3`):** Highest MMLU (92.9%), moderate cost at $0.01/1K.
+    *   🥈 **Grok 3 (`grok-3`):** Nearly as good (92.7% MMLU), higher freedom score.
+    *   🥉 **DeepSeek Reasoner (`deepseek-reasoner`):** Excellent performance (90.8% MMLU), lower cost.
 *   **Low-Latency Applications (Real-time Chat, Quick Interactions):**
-    *   🥇 **Claude 3 Haiku (`claude-3-haiku-20240307`):** Optimized for speed, good performance balance.
-    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Very fast, lowest cost.
-*   **Applications Requiring Multimodal Input or Large Context:**
-    *   🥇 **Gemini 1.5 Flash / Pro (`gemini-1.5-flash` / `gemini-1.5-pro`):** Native multimodal support, up to 1M token context window.
+    *   🥇 **AWS Bedrock Nova Lite (`bedrock-nova-lite`):** Very fast, ultra-low cost ($0.00060).
+    *   🥈 **Claude 3.5 Haiku (`claude-3-5-haiku`):** Optimized for speed, better performance.
+    *   🥉 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Fastest Google option, multimodal.
+*   **Applications Requiring Large Context:**
+    *   🥇 **Llama 4 Scout (`llama-4-scout`):** 10M token context, unmatched by others.
+    *   🥈 **AWS Bedrock Nova Premier (`bedrock-nova-premier`):** 1M tokens, better performance.
+    *   🥉 **Gemini 1.5 Pro (`gemini-1.5-pro`):** Up to 2M tokens, multimodal support.
+*   **Applications Needing High Freedom/Less Restrictions:**
+    *   🥇 **DeepSeek Coder V2 (`deepseek-coder-v2`):** Highest freedom score (60%).
+    *   🥈 **DeepSeek V2 (`deepseek-chat`):** High freedom (55%), better general performance.
+    *   🥉 **Llama 4 Scout (`llama-4-scout`):** High freedom (55%), massive context window.
+*   **Enterprise/AWS Infrastructure:**
+    *   🥇 **AWS Bedrock Nova Premier (`bedrock-nova-premier`):** Best performance in AWS ecosystem.
+    *   🥈 **AWS Bedrock Nova Pro (`bedrock-nova-pro`):** Balanced performance and cost.
+    *   🥉 **Mistral Large 2 (`mistral-large-2`):** Available on Bedrock, good performance.
 *   **Prototyping & MVPs:**
-    *   🥇 **GPT-3.5 Turbo (`gpt-3.5-turbo`):** Extremely cheap for validation, widely available.
-    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Very low cost, better performance than GPT-3.5.
+    *   🥇 **AWS Bedrock Nova Micro (`bedrock-nova-micro`):** Absolute lowest cost.
+    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Very cheap, multimodal capabilities.
+    *   🥉 **GPT-3.5 Turbo (`gpt-3.5-turbo`):** Widely supported, easy integration.
 
 ---
 
@@ -225,6 +239,32 @@ gemini_flash = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest") # Use spe
 # Requires: pip install langchain-community deepseek
 deepseek_chat = ChatDeepSeek(model="deepseek-chat", api_key="YOUR_DEEPSEEK_API_KEY") # api_key often needed explicitly
 deepseek_reasoner = ChatDeepSeek(model="deepseek-reasoner", api_key="YOUR_DEEPSEEK_API_KEY")
+
+# --- AWS Bedrock ---
+# Requires: pip install langchain-aws boto3
+# AWS credentials must be configured
+from langchain_aws import ChatBedrock
+nova_premier = ChatBedrock(model_id="amazon.nova-premier-v1:0", region_name="us-east-1")
+nova_pro = ChatBedrock(model_id="amazon.nova-pro-v1:0", region_name="us-east-1") 
+nova_lite = ChatBedrock(model_id="amazon.nova-lite-v1:0", region_name="us-east-1")
+nova_micro = ChatBedrock(model_id="amazon.nova-micro-v1:0", region_name="us-east-1")
+
+# --- xAI (Grok) ---
+# Requires: pip install langchain-community
+# Note: xAI/Grok integration may require special access
+from langchain_community.chat_models import ChatXAI
+grok_3 = ChatXAI(model="grok-3", api_key="YOUR_XAI_API_KEY")
+grok_3_mini = ChatXAI(model="grok-3-mini", api_key="YOUR_XAI_API_KEY")
+
+# --- Mistral ---
+# Requires: pip install langchain-mistralai
+from langchain_mistralai import ChatMistralAI
+mistral_large_2 = ChatMistralAI(model="mistral-large-2312", api_key="YOUR_MISTRAL_API_KEY")
+
+# --- Cohere ---
+# Requires: pip install langchain-cohere
+from langchain_cohere import ChatCohere
+command_r_plus = ChatCohere(model="command-r-plus", api_key="YOUR_COHERE_API_KEY")
 
 # --- Example Usage ---
 # response = gpt4_turbo.invoke("Explain the difference between MMLU and HumanEval benchmarks.")
@@ -268,6 +308,44 @@ const deepseekReasoner = new ChatDeepSeek({
   deepseekApiKey: process.env.DEEPSEEK_API_KEY, // Pass API key explicitly
 });
 
+// --- AWS Bedrock ---
+// Requires: npm install @langchain/aws
+// AWS credentials must be configured
+import { ChatBedrock } from "@langchain/aws";
+const novaPremier = new ChatBedrock({
+  model: "amazon.nova-premier-v1:0",
+  region: "us-east-1",
+});
+const novaPro = new ChatBedrock({
+  model: "amazon.nova-pro-v1:0",
+  region: "us-east-1",
+});
+
+// --- xAI (Grok) ---
+// Note: xAI/Grok integration may require special access
+// Requires: npm install @langchain/community
+import { ChatXAI } from "@langchain/community/chat_models/xai";
+const grok3 = new ChatXAI({
+  modelName: "grok-3",
+  apiKey: process.env.XAI_API_KEY,
+});
+
+// --- Mistral ---
+// Requires: npm install @langchain/mistralai
+import { ChatMistralAI } from "@langchain/mistralai";
+const mistralLarge2 = new ChatMistralAI({
+  modelName: "mistral-large-2312",
+  apiKey: process.env.MISTRAL_API_KEY,
+});
+
+// --- Cohere ---
+// Requires: npm install @langchain/cohere
+import { ChatCohere } from "@langchain/cohere";
+const commandRPlus = new ChatCohere({
+  model: "command-r-plus",
+  apiKey: process.env.COHERE_API_KEY,
+});
+
 // --- Example Usage ---
 /*
 async function runExample() {
@@ -293,7 +371,12 @@ runExample();
 | Anthropic Pricing                | Official Anthropic API pricing page.                                        |
 | Google AI Pricing (Vertex/Studio) | Official Google Cloud AI or AI Studio pricing pages.                       |
 | DeepSeek API Platform            | Official DeepSeek API documentation and pricing (including off-peak info). |
-| [TODO: Freedom Score Reference]  | [Link to paper/methodology defining the Freedom Score used.]                |
+| AWS Bedrock Pricing              | Official AWS Bedrock pricing page for Nova and Titan models.               |
+| xAI Platform                     | Official xAI/Grok API documentation and pricing.                           |
+| Mistral AI Platform              | Official Mistral AI API documentation and pricing.                         |
+| Cohere Platform                  | Official Cohere API documentation and pricing.                             |
+| Freedom Score - AI Book Bans     | Harvard Library Innovation Lab's "AI Book Bans" benchmark.                 |
+| 2025 AI Titans Report            | Comprehensive benchmark analysis for Q1-Q2 2025 LLM performance.           |
 
 ---
 

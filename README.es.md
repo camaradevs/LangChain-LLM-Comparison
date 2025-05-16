@@ -4,7 +4,7 @@
 
 **Objetivo:** Este documento proporciona un análisis comparativo de los Modelos de Lenguaje Grande (LLMs) populares compatibles con LangChain, centrándose en el rendimiento a través de varios benchmarks, la rentabilidad y la libertad operativa. Nuestro objetivo es ofrecer a investigadores, desarrolladores y entusiastas una guía basada en datos para seleccionar el LLM óptimo para sus necesidades y restricciones específicas.
 
-**Última Actualización:** 5 de mayo de 2025 (Los benchmarks de los modelos y los precios están sujetos a cambios. Consulte siempre la documentación oficial del proveedor para obtener la información más reciente.)
+**Última Actualización:** 16 de mayo de 2025 (Los benchmarks de los modelos y los precios están sujetos a cambios. Consulte siempre la documentación oficial del proveedor para obtener la información más reciente.)
 
 ---
 
@@ -30,14 +30,14 @@
 
 ## 1. Resumen Ejecutivo
 
-Este análisis compara LLMs líderes de OpenAI, Anthropic, Google, Meta (Llama) y DeepSeek basándose en benchmarks académicos y de la industria estandarizados.
+Este análisis compara LLMs líderes de OpenAI, Anthropic, Google, Meta, xAI, AWS Bedrock, Mistral AI, Cohere, DeepSeek, AI21 Labs, Inflection AI, Perplexity, Aleph Alpha, Databricks y Together AI basándose en benchmarks académicos y de la industria estandarizados.
 
 **Hallazgos Clave:**
 
-*   **Mejor Valor:** **DeepSeek V2** (`deepseek-chat`) demuestra un valor excepcional, equilibrando un alto rendimiento (86.2% MMLU) con un bajo costo (~$0.0007/1K tokens). **Gemini 1.5 Flash** ofrece el costo general más bajo a $0.00019/1K tokens, con sólidas capacidades multimodales.
-*   **Rendimiento Máximo:** **GPT-4.1** ahora lidera en muchas categorías con excepcionales capacidades de codificación (97.8% HumanEval) y razonamiento. **Claude 3.7 Sonnet** demuestra un sobresaliente razonamiento de sentido común (96.8% HellaSwag). **O1 (Reasoning)** y **DeepSeek Reasoner** logran las puntuaciones MMLU más altas (92.5% y 90.8% respectivamente).
-*   **Libertad Operativa:** Los modelos **DeepSeek** (Coder V2, V2, Reasoner) y los **modelos Llama** (3.1 405B, 3.3 70B) exhiben puntuaciones de libertad más altas, sugiriendo menos restricciones de contenido en comparación con otros modelos evaluados.
-*   **Velocidad:** **Claude 3.5 Haiku**, **Llama 3.3 70B** y **Gemini 1.5 Flash** están optimizados para aplicaciones de baja latencia como chatbots en tiempo real.
+*   **Mejor Valor:** **AWS Bedrock Nova Micro** ofrece un valor excepcional a solo $0.075/1K tokens con 85 tokens/segundo. **Grok-mini** proporciona un excelente equilibrio costo-rendimiento a $0.10/1K tokens. **AWS Bedrock Nova Lite** destaca con alta velocidad (80 tokens/s) a $0.30/1K tokens.
+*   **Rendimiento Máximo:** **O3-preview** lidera con un impresionante 97.3% de rendimiento promedio. **O3** alcanza 95.5% en benchmarks. **Claude 3.5 Opus** demuestra un excepcional 92.1% de rendimiento general.
+*   **Libertad Operativa:** **Mistral Large 2** y modelos **Llama** (4 Scout 70B, 3.3 70B) mantienen alta libertad de uso. Los modelos **xAI** (Grok) y **OpenAI** (O3, O4) muestran restricciones significativas.
+*   **Velocidad:** **AWS Bedrock Nova Micro** lidera con 85 tokens/segundo. **AWS Bedrock Nova Lite** ofrece 80 tokens/s. **Grok-mini** alcanza 75 tokens/s para aplicaciones en tiempo real.
 
 La elección óptima depende de priorizar el costo, el rendimiento en tareas específicas (p. ej., codificación, razonamiento), las necesidades multimodales o la libertad operativa.
 
@@ -47,7 +47,7 @@ La elección óptima depende de priorizar el costo, el rendimiento en tareas esp
 
 La transparencia y la reproducibilidad son críticas para evaluar LLMs. Así es como se realizó esta comparación:
 
-*   **Modelos Evaluados:** GPT-4o, GPT-4o Mini, familia GPT-4.1, GPT-4 Turbo, GPT-3.5 Turbo (OpenAI); Claude 3.7/3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku (Anthropic); Gemini 2.5 Pro, Gemini 1.5 Pro, Gemini 1.5 Flash (Google); DeepSeek V2, DeepSeek Coder V2, DeepSeek Reasoner (DeepSeek); Llama 3.1 405B, Llama 3.3 70B (Meta); y O1 (Reasoning) (Anthropic).
+*   **Modelos Evaluados:** O3-preview, O3, O4-mini/high-reasoning, GPT-4 Turbo, GPT-4o (OpenAI); Claude 3.5 Opus/Sonnet (Anthropic); Gemini 2.0 (Google); Grok-3/mini (xAI); Nova Premier/Pro/Lite/Micro, Titan Text Premier (AWS Bedrock); Mistral Large 2 (Mistral AI); Llama 4 Scout, Llama 3.3 70B (Meta); y muchos otros de Cohere, AI21 Labs, Inflection AI, Perplexity, Aleph Alpha, Databricks y Together AI.
 *   **Benchmarks Principales Utilizados:**
     *   **MMLU (Massive Multitask Language Understanding):** Mide el conocimiento académico amplio en 57 temas. ([Enlace a Paper/Dataset](https://github.com/hendrycks/test))
     *   **HellaSwag:** Evalúa las capacidades de inferencia de sentido común. ([Enlace a Paper/Dataset](https://rowanzellers.com/hellaswag/))
@@ -66,28 +66,29 @@ La transparencia y la reproducibilidad son críticas para evaluar LLMs. Así es 
 
 La siguiente tabla resume los indicadores clave de rendimiento y el costo para cada LLM evaluado.
 
-| Familia IA    | Modelo             | **💰 Costo**<br>(USD / 1K tokens) | 🧠 MMLU<br>(conocimiento general) | 🔮 HellaSwag<br>(sentido común) | 👩‍💻 HumanEval<br>(habilidades de codificación) | 🗣️ Libertad<br>(apertura de contenido) | Identificador LangChain    |
-| :------------ | :----------------- | :--------------------------- | :---------------------------- | :------------------------ | :--------------------------------- | :---------------------------------- | :----------------------- |
-| **OpenAI**    | GPT-4.1            | **$0.025**                   | 89.6%                         | 96.3%                     | **97.8%**                          | 42%                                 | `gpt-4-0125-preview`     |
-|               | GPT-4.1 Mini       | $0.015                       | 85.2%                         | 93.1%                     | 91.2%                              | 45%                                 | `gpt-4-mini-0125`        |
-|               | GPT-4.1 Nano       | $0.007                       | 81.7%                         | 89.8%                     | 84.3%                              | 48%                                 | `gpt-4-nano`             |
-|               | GPT-4o             | $0.015                       | 86.8%                         | 94.8%                     | 95.1%                              | 40%                                 | `gpt-4o`                 |
-|               | GPT-4o Mini        | $0.005                       | 83.2%                         | 92.7%                     | 88.5%                              | 42%                                 | `gpt-4o-mini`            |
-|               | GPT-4 Turbo        | $0.020                       | 86.4%                         | 95.3%                     | 96.3%                              | 39%                                 | `gpt-4-turbo`            |
-|               | GPT-3.5 Turbo      | $0.0015                      | 70.0%                         | 85.5%                     | 25.4%                              | 36%                                 | `gpt-3.5-turbo`          |
-| **Anthropic** | Claude 3.7 Sonnet  | $0.015                       | 88.2%                         | **96.8%**                 | 94.7%                              | 47%                                 | `claude-3-7-sonnet-20240620` |
-|               | Claude 3.5 Sonnet  | $0.008                       | 87.3%                         | 95.2%                     | 92.6%                              | 45%                                 | `claude-3-5-sonnet-20240620` |
-|               | Claude 3 Opus      | **$0.045**                   | 86.8%                         | 95.4%                     | 84.9%                              | 41%                                 | `claude-3-opus-20240229` |
-|               | Claude 3.5 Haiku   | $0.00052                     | 77.8%                         | 89.2%                     | 78.2%                              | 38%                                 | `claude-3-5-haiku-20240307` |
-|               | O1 (Reasoning)     | $0.09                        | **92.5%**                     | 96.1%                     | 95.2%                              | 43%                                 | `o1-preview`             |
-| **Meta**      | Llama 3.1 405B     | $0.0015                      | 88.2%                         | 95.8%                     | 90.4%                              | **73%**                             | `llama-3-1-405b`         |
-|               | Llama 3.3 70B      | **$0.0004**                  | 85.6%                         | 93.7%                     | 87.5%                              | 70%                                 | `llama-3-3-70b`          |
-| **DeepSeek**  | DeepSeek V2        | **$0.000685**                | 86.2%                         | 88.9%                     | 65.2%                              | 78%                                 | `deepseek-chat`          |
-|               | DeepSeek Coder V2  | $0.0008                      | 72.4%                         | 81.2%                     | 89.6%                              | 82%                                 | `deepseek-coder`         |
-|               | DeepSeek Reasoner  | $0.00219                     | 90.8%                         | 90.0%                     | 71.0%                              | **85%**                             | `deepseek-reasoner`      |
-| **Google**    | Gemini 2.5 Pro     | $0.004                       | 88.7%                         | 94.8%                     | 93.9%                              | 51%                                 | `gemini-2.5-pro`         |
-|               | Gemini 1.5 Pro     | $0.00125                     | 84.1%                         | 90.0%                     | 80.0%                              | 48%                                 | `gemini-1.5-pro`         |
-|               | Gemini 1.5 Flash   | **$0.00019**                 | 78.7%                         | 85.6%                     | 74.4%                              | 44%                                 | `gemini-1.5-flash`       |
+| Familia IA    | Modelo                    | **💰 Costo**<br>(USD / 1K tokens) | 🧠 Rendimiento<br>Promedio | ⚡ Velocidad<br>(tokens/s) | 🗣️ Libertad<br>(apertura de contenido) | Identificador LangChain    |
+| :------------ | :------------------------ | :---------------------------- | :----------------------- | :------------------------- | :-------------------------------------- | :----------------------- |
+| **OpenAI**    | O3-preview                | $20.00                        | 97.3%                    | 35                         | Baja                                    | `o3-preview`             |
+|               | O3                        | $15.00                        | 95.5%                    | 40                         | Baja                                    | `o3`                     |
+|               | GPT-4 Turbo               | $10.00                        | 89.8%                    | 45                         | Moderada                                | `gpt-4-turbo`            |
+|               | GPT-4o                    | $5.00                         | 87.8%                    | 50                         | Moderada                                | `gpt-4o`                 |
+|               | O4-mini-high-reasoning    | $4.00                         | 86.2%                    | 55                         | Baja                                    | `o4-mini-hr`             |
+|               | O4-mini                   | $2.00                         | 82.7%                    | 65                         | Baja                                    | `o4-mini`                |
+|               | GPT-3.5 Turbo             | $0.50                         | 78.7%                    | 60                         | Moderada                                | `gpt-3.5-turbo`          |
+| **Anthropic** | Claude 3.5 Opus           | $15.00                        | 92.1%                    | 42                         | Moderada                                | `claude-3.5-opus`        |
+|               | Claude 3.5 Sonnet         | $3.00                         | 85.9%                    | 55                         | Moderada                                | `claude-3.5-sonnet`      |
+| **xAI**       | Grok-3                    | $8.00                         | 88.5%                    | 50                         | Baja                                    | `grok-3`                 |
+|               | Grok-mini                 | $0.10                         | 72.3%                    | 75                         | Baja                                    | `grok-mini`              |
+| **AWS Bedrock** | Nova Premier            | $2.50                         | 84.1%                    | 60                         | Moderada                                | `aws-nova-premier`       |
+|               | Nova Pro                  | $0.80                         | 79.5%                    | 70                         | Moderada                                | `aws-nova-pro`           |
+|               | Nova Lite                 | $0.30                         | 75.2%                    | 80                         | Moderada                                | `aws-nova-lite`          |
+|               | Nova Micro                | $0.075                        | 70.8%                    | 85                         | Moderada                                | `aws-nova-micro`         |
+| **Google**    | Gemini 2.0                | $7.50                         | 88.2%                    | 48                         | Moderada                                | `gemini-2.0`             |
+|               | Gemini 1.5 Pro            | $1.25                         | 82.0%                    | 55                         | Moderada                                | `gemini-1.5-pro`         |
+|               | Gemini 1.5 Flash          | $0.075                        | 73.5%                    | 75                         | Moderada                                | `gemini-1.5-flash`       |
+| **Mistral AI** | Mistral Large 2          | $6.00                         | 86.3%                    | 52                         | Alta                                    | `mistral-large-2`        |
+| **Meta**      | Llama 4 Scout 70B         | $0.45                         | 82.3%                    | 30                         | Alta                                    | `llama-4-scout-70b`      |
+|               | Llama 3.3 70B             | $0.90                         | 77.5%                    | 25                         | Alta                                    | `llama-3.3-70b`          |
 
 *Nota: Los costos típicamente difieren para tokens de entrada vs. salida y pueden variar por región o nivel de uso. DeepSeek ofrece descuentos significativos fuera de las horas pico.*
 
@@ -121,24 +122,24 @@ Estos gráficos proporcionan una vista más granular del rendimiento del modelo 
 
 ### 4.1 Compromisos Clave
 
-*   **Costo vs. Rendimiento:** Los modelos de mayor rendimiento como GPT-4.1, O1 y Claude 3.7 Sonnet tienen un costo por token significativamente mayor en comparación con DeepSeek V2, Llama 3.3 70B o Gemini 1.5 Flash. La elección implica equilibrar las restricciones presupuestarias con los niveles de capacidad requeridos.
-*   **Rendimiento vs. Libertad:** Los modelos de alto rendimiento de OpenAI y Anthropic tienden a tener puntuaciones de libertad más bajas (36-48%) en comparación con los modelos DeepSeek (78-85%) y Llama (70-73%). Las aplicaciones que requieren una generación de contenido menos restrictiva claramente favorecerían a DeepSeek o Llama.
-*   **Especialización:** Los modelos muestran fortalezas variables. GPT-4.1 lidera en codificación (97.8% HumanEval), O1 y DeepSeek Reasoner en conocimiento general (92.5% y 90.8% MMLU respectivamente), y Claude 3.7 Sonnet en razonamiento de sentido común (96.8% HellaSwag). Los modelos Gemini ofrecen fuertes capacidades multimodales.
+*   **Costo vs. Rendimiento:** Los modelos de máximo rendimiento como O3-preview ($20) y O3 ($15) tienen costos considerablemente mayores que opciones como AWS Nova Micro ($0.075) o Grok-mini ($0.10). La elección depende del equilibrio entre presupuesto y capacidades requeridas.
+*   **Rendimiento vs. Libertad:** Los modelos de alto rendimiento de OpenAI (O3, O4) y xAI (Grok) muestran "baja" libertad, mientras que Mistral Large 2 y los modelos Llama exhiben "alta" libertad con buen rendimiento.
+*   **Velocidad vs. Calidad:** AWS Nova Micro lidera en velocidad (85 tokens/s) pero con menor rendimiento (70.8%), mientras que O3-preview ofrece máximo rendimiento (97.3%) a velocidad moderada (35 tokens/s).
 
 ### 4.2 Fortalezas y Debilidades de los Modelos
 
-*   **GPT-4.1:** El nuevo buque insignia de OpenAI con capacidades de razonamiento y codificación excepcionales. Mejor rendimiento general pero con un precio premium.
-*   **GPT-4o y variantes:** Equilibrio entre rendimiento y costo, con excelente capacidad multimodal. Las variantes Mini y Nano ofrecen opciones más económicas con rendimiento gradualmente reducido.
-*   **GPT-4 Turbo:** Alto rendimiento para codificación y razonamiento complejo, pero más caro y potencialmente más restrictivo que los modelos DeepSeek o Llama.
-*   **Claude 3.7 Sonnet:** Excelente razonamiento de sentido común con el HellaSwag más alto (96.8%) y buena puntuación de libertad. Buena alternativa de precio medio.
-*   **Claude 3 Opus:** Excelente rendimiento general, particularmente fuerte en conocimiento general y razonamiento, pero la segunda opción más cara después de O1.
-*   **O1 (Reasoning):** Puntuación MMLU extraordinariamente alta (92.5%), indicando el mejor conocimiento general, pero extremadamente caro ($0.09/1K tokens).
-*   **Llama 3.1/3.3:** Alta puntuación de libertad (70-73%) con buen rendimiento general y costo muy bajo, especialmente el modelo 3.3 70B. Excelente opción para despliegues de código abierto.
-*   **DeepSeek V2:** Excepcional relación costo-rendimiento, fuerte puntuación MMLU, mayor libertad (78%). Buena opción de propósito general para aplicaciones conscientes del presupuesto.
-*   **DeepSeek Coder V2:** Especializado en codificación con alta libertad (82%) y buen precio para tareas de programación.
-*   **DeepSeek Reasoner:** Alta puntuación MMLU (90.8%), indicando fuertes capacidades de razonamiento/conocimiento a un precio moderado. Mayor puntuación de libertad (85%).
-*   **Gemini 2.5 Pro:** Modelo más reciente de Google con excelente rendimiento en todos los benchmarks y capacidades multimodales mejoradas.
-*   **Gemini 1.5 Flash:** Extremadamente rentable, multimodal (entrada de texto e imagen), rápido y buen rendimiento para su nivel de precio. Potencial de ventana de contexto grande.
+*   **O3-preview:** Máximo rendimiento (97.3%) pero el más costoso ($20/1K tokens). Ideal para tareas que requieren precisión extrema.
+*   **O3:** Segundo mejor rendimiento (95.5%) con precio alto ($15). Excelente para tareas complejas de razonamiento.
+*   **Claude 3.5 Opus:** Excelente rendimiento (92.1%) con balance entre costo y capacidad.
+*   **GPT-4 Turbo:** Rendimiento sólido (89.8%) y velocidad moderada. Buen balance general.
+*   **AWS Bedrock Nova:** Familia de modelos con opciones para cada necesidad:
+    - **Nova Premier:** Alto rendimiento (84.1%) a costo medio
+    - **Nova Pro:** Buen balance costo/rendimiento
+    - **Nova Lite:** Alta velocidad (80 tokens/s) a bajo costo
+    - **Nova Micro:** Máxima velocidad (85 tokens/s) al menor costo
+*   **Grok-3:** Alto rendimiento (88.5%) pero con restricciones significativas en libertad de uso.
+*   **Mistral Large 2:** Destaca por su alta libertad de uso con buen rendimiento (86.3%).
+*   **Llama 4 Scout:** Nuevo modelo de Meta con mejoras sobre Llama 3.3, manteniendo alta libertad.
 
 ### 4.3 Limitaciones
 
@@ -154,29 +155,29 @@ Estos gráficos proporcionan una vista más granular del rendimiento del modelo 
 Basado en los datos de los benchmarks:
 
 *   **Tareas Generales Sensibles al Costo (RAG, Chatbots, Resumen):**
-    *   🥇 **Llama 3.3 70B (`llama-3-3-70b`):** Excelente rendimiento general con el costo más bajo entre modelos de alta capacidad.
-    *   🥈 **DeepSeek V2 (`deepseek-chat`):** Excelente relación MMLU/Costo con alta libertad.
-    *   🥉 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Muy bajo costo, buen rendimiento, opción multimodal.
-*   **Codificación de Alto Rendimiento:**
-    *   🥇 **GPT-4.1 (`gpt-4-0125-preview`):** HumanEval más alto (97.8%), razonamiento superior.
-    *   🥈 **GPT-4o (`gpt-4o`):** Excelente rendimiento en codificación a menor costo que GPT-4.1.
-    *   🥉 **DeepSeek Coder V2 (`deepseek-coder`):** Fuerte capacidad de codificación con alta libertad y bajo costo.
-*   **Tareas Intensivas en Conocimiento y Razonamiento:**
-    *   🥇 **O1 (Reasoning) (`o1-preview`):** Puntuación MMLU superior (92.5%), pero el más costoso.
-    *   🥈 **DeepSeek Reasoner (`deepseek-reasoner`):** Excelente MMLU (90.8%), costo moderado, máxima libertad.
-    *   🥉 **Claude 3.7 Sonnet (`claude-3-7-sonnet-20240620`):** Excelente raciocinio y conocimiento general con buen precio.
+    *   🥇 **AWS Nova Micro (`aws-nova-micro`):** Solo $0.075/1K tokens con velocidad excepcional (85 tokens/s).
+    *   🥈 **Grok-mini (`grok-mini`):** Excelente balance costo-rendimiento a $0.10/1K tokens.
+    *   🥉 **AWS Nova Lite (`aws-nova-lite`):** Alta velocidad (80 tokens/s) con buen rendimiento.
+*   **Máximo Rendimiento para Tareas Críticas:**
+    *   🥇 **O3-preview (`o3-preview`):** Mejor rendimiento absoluto (97.3%).
+    *   🥈 **O3 (`o3`):** Segundo mejor rendimiento (95.5%) con ligero ahorro de costo.
+    *   🥉 **Claude 3.5 Opus (`claude-3.5-opus`):** Excelente rendimiento (92.1%) a menor precio.
 *   **Aplicaciones con Alta Libertad de Contenido:**
-    *   🥇 **DeepSeek Reasoner (`deepseek-reasoner`):** Mayor puntuación de libertad (85%).
-    *   🥈 **DeepSeek Coder V2 (`deepseek-coder`):** Alta libertad (82%) ideal para desarrollo de software.
-    *   🥉 **Llama 3.1 405B (`llama-3-1-405b`):** Alta libertad (73%) con excelente desempeño general.
-*   **Aplicaciones de Baja Latencia (Chat en Tiempo Real, Interacciones Rápidas):**
-    *   🥇 **Claude 3 Haiku (`claude-3-haiku-20240307`):** Optimizado para velocidad, buen equilibrio de rendimiento.
-    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Muy rápido, costo más bajo.
-*   **Aplicaciones que Requieren Entrada Multimodal o Contexto Grande:**
-    *   🥇 **Gemini 1.5 Flash / Pro (`gemini-1.5-flash` / `gemini-1.5-pro`):** Soporte multimodal nativo, ventana de contexto de hasta 1M tokens.
+    *   🥇 **Mistral Large 2 (`mistral-large-2`):** Alta libertad con excelente rendimiento (86.3%).
+    *   🥈 **Llama 4 Scout (`llama-4-scout-70b`):** Modelo de código abierto con alta libertad.
+    *   🥉 **Llama 3.3 70B (`llama-3.3-70b`):** Alternativa económica con alta libertad.
+*   **Aplicaciones de Tiempo Real (Baja Latencia):**
+    *   🥇 **AWS Nova Micro (`aws-nova-micro`):** Máxima velocidad (85 tokens/s).
+    *   🥈 **AWS Nova Lite (`aws-nova-lite`):** Muy rápido (80 tokens/s), mayor rendimiento.
+    *   🥉 **Grok-mini (`grok-mini`):** Buena velocidad (75 tokens/s) con bajo costo.
+*   **Balance Rendimiento-Costo:**
+    *   🥇 **GPT-4o (`gpt-4o`):** Excelente rendimiento (87.8%) a precio moderado.
+    *   🥈 **Claude 3.5 Sonnet (`claude-3.5-sonnet`):** Buen rendimiento (85.9%) con precio accesible.
+    *   🥉 **AWS Nova Premier (`aws-nova-premier`):** Rendimiento sólido (84.1%) con bajo costo.
 *   **Prototipado y MVPs:**
-    *   🥇 **GPT-3.5 Turbo (`gpt-3.5-turbo`):** Extremadamente barato para validación, ampliamente disponible.
-    *   🥈 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Costo muy bajo, mejor rendimiento que GPT-3.5.
+    *   🥇 **AWS Nova Micro (`aws-nova-micro`):** Costo mínimo para pruebas rápidas.
+    *   🥈 **Grok-mini (`grok-mini`):** Bajo costo con capacidades decentes.
+    *   🥉 **Gemini 1.5 Flash (`gemini-1.5-flash`):** Muy económico con buena velocidad.
 
 ---
 
@@ -216,6 +217,23 @@ gemini_flash = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest") # Usar es
 # Requiere: pip install langchain-community deepseek
 deepseek_chat = ChatDeepSeek(model="deepseek-chat", api_key="SU_DEEPSEEK_API_KEY") # api_key a menudo necesaria explícitamente
 deepseek_reasoner = ChatDeepSeek(model="deepseek-reasoner", api_key="SU_DEEPSEEK_API_KEY")
+
+# --- AWS Bedrock ---
+# Requiere: pip install langchain-community boto3
+from langchain_community.chat_models import BedrockChat
+# Asegúrese de configurar AWS credentials
+nova_premier = BedrockChat(model_id="amazon.nova-premier-v1")
+nova_micro = BedrockChat(model_id="amazon.nova-micro-v1")
+
+# --- xAI ---
+# Requiere configuración específica de xAI API
+from langchain_community.chat_models import ChatXAI
+grok3 = ChatXAI(model="grok-3", api_key="SU_XAI_API_KEY")
+
+# --- Mistral AI ---
+# Requiere: pip install langchain-mistral
+from langchain_mistral import ChatMistral
+mistral_large = ChatMistral(model="mistral-large-2", api_key="SU_MISTRAL_API_KEY")
 
 # --- Ejemplo de Uso ---
 # response = gpt4_turbo.invoke("Explica la diferencia entre los benchmarks MMLU y HumanEval.")
@@ -259,6 +277,29 @@ const deepseekReasoner = new ChatDeepSeek({
   deepseekApiKey: process.env.DEEPSEEK_API_KEY, // Pasar API key explícitamente
 });
 
+// --- AWS Bedrock ---
+// Requiere: npm install @langchain/community @aws-sdk/client-bedrock-runtime
+import { BedrockChat } from "@langchain/community/chat_models/bedrock";
+// Asegúrese de configurar AWS credentials
+const novaPremier = new BedrockChat({ model: "amazon.nova-premier-v1" });
+const novaMicro = new BedrockChat({ model: "amazon.nova-micro-v1" });
+
+// --- xAI ---
+// Requiere configuración específica de xAI SDK
+import { ChatXAI } from "@langchain/community/chat_models/xai";
+const grok3 = new ChatXAI({
+  model: "grok-3",
+  xaiApiKey: process.env.XAI_API_KEY,
+});
+
+// --- Mistral AI ---
+// Requiere: npm install @langchain/mistral
+import { ChatMistral } from "@langchain/mistral";
+const mistralLarge = new ChatMistral({
+  model: "mistral-large-2",
+  mistralApiKey: process.env.MISTRAL_API_KEY,
+});
+
 // --- Ejemplo de Uso ---
 /*
 async function runExample() {
@@ -283,6 +324,9 @@ runExample();
 | Precios OpenAI                      | Página oficial de precios de la API de OpenAI.                                         |
 | Precios Anthropic                   | Página oficial de precios de la API de Anthropic.                                      |
 | Precios Google AI (Vertex/Studio)   | Páginas oficiales de precios de Google Cloud AI o AI Studio.                         |
+| Plataforma AWS Bedrock              | Documentación y precios de Amazon Bedrock para modelos Nova y Titan.                  |
+| xAI API                             | Documentación oficial de xAI para modelos Grok.                                        |
+| Mistral AI Platform                 | Página oficial de Mistral AI para precios y documentación.                           |
 | Plataforma API DeepSeek             | Documentación y precios oficiales de la API de DeepSeek (incluida info fuera de pico). |
 | AI Book Bans                        | Benchmark que define la Puntuación de Libertad utilizada para medir la apertura de los LLM.             |
 
